@@ -18,5 +18,11 @@ class TestBowling(unittest.TestCase):
             self.game.roll(0)
         self.assertEqual(self.game.score(), 0)
 
+    def test_1_pin_each_roll(self):
+        for i in range(20):
+            self.game.roll(1)
+        self.assertEqual(self.game.score(), 20)
+
+
 if __name__ == '__main__':
     unittest.main()
