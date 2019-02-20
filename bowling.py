@@ -27,7 +27,10 @@ class Bowling:
                 if len(self._frames[i+1]) > 1:
                     self._points += (sum(self._frames[i]) + sum(self._frames[i+1]))
                 else:
-                    self._points += (sum(self._frames[i]) + sum(self._frames[i+1]) + sum(self._frames[i+2]))
+                    if len(self._frames[i+2]) > 1:
+                        self._points += (sum(self._frames[i]) + sum(self._frames[i+1]) + self._frames[i+2][0])
+                    else:
+                        self._points += (sum(self._frames[i]) + sum(self._frames[i+1]) + sum(self._frames[i+2]))
 
         return(self._points)
 

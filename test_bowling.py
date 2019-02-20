@@ -49,6 +49,16 @@ class TestBowling(unittest.TestCase):
             self.game.roll(0)
         self.assertEqual(self.game.score(), 60)
 
+    # 3 strikes followed by all misses, scores 60
+    def test_score_2_strike(self):
+        self.game.roll(10)
+        self.game.roll(10)
+        self.game.roll(5)
+        self.game.roll(5)
+        for i in range(18):
+            self.game.roll(0)
+        self.assertEqual(self.game.score(), 55)
+
     # A perfect game (12 strikes) scores 300
     def test_score_a_perfect_game(self):
         for i in range(12):
