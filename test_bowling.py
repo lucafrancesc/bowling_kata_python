@@ -59,6 +59,19 @@ class TestBowling(unittest.TestCase):
             self.game.roll(0)
         self.assertEqual(self.game.score(), 55)
 
+    # 1 spare, 1 strikes, 1 spare, 1 meh followed by all misses, scores 60
+    def test_score_mixed(self):
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(10)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(0)
+        for i in range(16):
+            self.game.roll(0)
+        self.assertEqual(self.game.score(), 60)
+
     # A perfect game (12 strikes) scores 300
     def test_score_a_perfect_game(self):
         for i in range(12):
@@ -73,6 +86,6 @@ class TestBowling(unittest.TestCase):
         self.game.roll(0)
         self.assertEqual(self.game.score(), 270)
 
-
+# # print(self.game._frames)
 if __name__ == '__main__':
     unittest.main()
