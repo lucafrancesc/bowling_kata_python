@@ -25,7 +25,13 @@ class TestBowling(unittest.TestCase):
 
     # A spare in the first frame, followed by three pins,
     # followed by all misses scores 16
-
+    def test_score_a_spare(self):
+        self.game.roll(4)
+        self.game.roll(6)
+        self.game.roll(3)
+        for i in range(17):
+            self.game.roll(0)
+        self.assertEqual(self.game.score(), 16)
 
     # A strike in the first frame, followed by three and then four pins,
     # followed by all misses, scores 24
