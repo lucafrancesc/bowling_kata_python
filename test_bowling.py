@@ -53,8 +53,15 @@ class TestBowling(unittest.TestCase):
     def test_score_a_perfect_game(self):
         for i in range(12):
             self.game.roll(10)
-        print(self.game._frames)
         self.assertEqual(self.game.score(), 300)
+
+    # Almost perfect game (10 strikes) scores 270
+    def test_score_a_perfect_game(self):
+        for i in range(10):
+            self.game.roll(10)
+        self.game.roll(0)
+        self.game.roll(0)
+        self.assertEqual(self.game.score(), 270)
 
 
 if __name__ == '__main__':
