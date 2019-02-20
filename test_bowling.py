@@ -13,5 +13,10 @@ class TestBowling(unittest.TestCase):
         self.game.roll(4)
         self.assertEqual(self.game.score(), 4)
 
+    def test_gutter_game(self):
+        for i in range(20):
+            self.game.roll(0)
+        self.assertEqual(self.game.score(), 0)
+
 if __name__ == '__main__':
     unittest.main()
