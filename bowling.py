@@ -35,7 +35,6 @@ class Bowling:
         return(self._points)
 
 
-
     def _next_frame(self, pins):
         self._frames[self._current_roll].append(pins)
         self._current_roll += 1
